@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo.HelloController"
+            styleClass="root-pane"
+            prefHeight="750.0" prefWidth="1150.0">
+
+    <!-- ===================== ВЕРХНЯЯ ПАНЕЛЬ ===================== -->
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="15.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="12.0" right="20.0" bottom="12.0" left="20.0"/>
+            </padding>
+            <Label text="Панель мониторинга оборудования" styleClass="title-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnToggleNav" text="Скрыть навигацию"
+                    onAction="#handleToggleNavigation" styleClass="top-button"/>
+            <Button text="О программе" onAction="#handleAbout" styleClass="top-button"/>
+        </HBox>
+    </top>
+
+    <!-- ===================== ЛЕВАЯ НАВИГАЦИЯ (VBox) ===================== -->
+    <left>
+        <VBox fx:id="navPane" styleClass="nav-pane" spacing="10.0" prefWidth="220.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="20.0" right="15.0" bottom="20.0" left="15.0"/>
+            </padding>
+            <Label text="Навигация" styleClass="nav-title"/>
+            <Button text="Все устройства" maxWidth="Infinity" styleClass="nav-button" onAction="#handleFilterAll"/>
+            <Button text="Компьютеры" maxWidth="Infinity" styleClass="nav-button" onAction="#handleFilterComputers"/>
+            <Button text="Телефоны" maxWidth="Infinity" styleClass="nav-button" onAction="#handleFilterPhones"/>
+            <Button text="Роутеры" maxWidth="Infinity" styleClass="nav-button" onAction="#handleFilterRouters"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Separator/>
+            <Label fx:id="lblOnlineCount" text="Онлайн: 0 из 0" styleClass="nav-info"/>
+        </VBox>
+    </left>
+
+    <!-- ===================== ЦЕНТРАЛЬНАЯ ОБЛАСТЬ ===================== -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="content-scroll" BorderPane.alignment="CENTER">
+            <content>
+                <VBox spacing="14.0" styleClass="center-box">
+                    <padding>
+                        <Insets top="20.0" right="25.0" bottom="20.0" left="25.0"/>
+                    </padding>
+
+                    <Label text="Состояние оборудования" styleClass="section-title"/>
+
+                    <!-- Карточки устройств формируются программно в HelloController -->
+                    <GridPane fx:id="devicesGrid" hgap="20.0" vgap="20.0" styleClass="devices-grid">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="33.3" hgrow="ALWAYS"/>
+                            <ColumnConstraints percentWidth="33.3" hgrow="ALWAYS"/>
+                            <ColumnConstraints percentWidth="33.3" hgrow="ALWAYS"/>
+                        </columnConstraints>
+                    </GridPane>
+
+                    <HBox spacing="10.0" alignment="CENTER_LEFT" styleClass="add-device-bar">
+                        <TextField fx:id="tfDeviceName" promptText="Название устройства" HBox.hgrow="ALWAYS"/>
+                        <ComboBox fx:id="cbNewDeviceType" promptText="Тип"/>
+                        <Button text="Добавить устройство" onAction="#handleAddDevice" styleClass="add-button"/>
+                        <Button text="Обновить статус (случайно)" onAction="#handleRefreshStatus" styleClass="refresh-button"/>
+                    </HBox>
+
+                    <Separator/>
+
+                    <Label text="Тестовая панель управления статусами" styleClass="section-title"/>
+                    <HBox spacing="10.0" alignment="CENTER_LEFT" styleClass="test-panel">
+                        <Label text="Устройство:"/>
+                        <ComboBox fx:id="cbTestDevice" prefWidth="200.0"/>
+                        <Label text="Новый статус:"/>
+                        <ComboBox fx:id="cbTestStatus" prefWidth="160.0"/>
+                        <Button text="Применить" onAction="#handleApplyTestStatus" styleClass="add-button"/>
+                    </HBox>
+
+                    <Separator/>
+
+                    <Label text="Параметры записи" styleClass="section-title"/>
+
+                    <GridPane hgap="15.0" vgap="12.0" styleClass="params-grid">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="150.0" hgrow="NEVER"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <Label text="Устройство:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <ComboBox fx:id="cbDevice" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                        <Label text="Форма обучения:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="cbForm" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    </GridPane>
+
+                    <Label text="Примечание:" styleClass="section-title"/>
+                    <TextArea fx:id="taNote" promptText="Введите примечание к состоянию оборудования..."
+                              wrapText="true" prefHeight="140.0"/>
+
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <!-- ===================== НИЖНЯЯ СТРОКА СОСТОЯНИЯ ===================== -->
+    <bottom>
+        <HBox styleClass="status-bar" alignment="CENTER_LEFT" spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="6.0" right="20.0" bottom="6.0" left="20.0"/>
+            </padding>
+            <Label fx:id="lblStatusBar" text="Готово" styleClass="status-bar-label"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

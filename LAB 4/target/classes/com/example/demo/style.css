@@ -1,0 +1,128 @@
+.root-pane {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-background-color: #f4f6f8;
+}
+
+.top-bar {
+    -fx-background-color: linear-gradient(to right, #2c3e50, #34495e);
+}
+.title-label {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+.top-button {
+    -fx-background-color: #1abc9c;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 6 14 6 14;
+    -fx-cursor: hand;
+    -fx-font-size: 12px;
+}
+.top-button:hover {
+    -fx-background-color: #16a085;
+}
+
+.nav-pane {
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #dcdcdc transparent transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+.nav-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+.nav-button {
+    -fx-background-color: white;
+    -fx-text-fill: #2c3e50;
+    -fx-border-color: #d0d3d4;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 8;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+}
+.nav-button:hover {
+    -fx-background-color: #d6eaf8;
+}
+.nav-info {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 12px;
+}
+
+.center-box {
+    -fx-background-color: white;
+}
+.section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+}
+
+.device-card {
+    -fx-background-color: #fafafa;
+    -fx-background-radius: 8;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0, 0, 2);
+}
+.device-icon {
+    -fx-font-size: 34px;
+}
+.device-name {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.status-online  { -fx-text-fill: #27ae60; -fx-font-weight: bold; }
+.status-warning { -fx-text-fill: #f39c12; -fx-font-weight: bold; }
+.status-offline { -fx-text-fill: #e74c3c; -fx-font-weight: bold; }
+
+.status-dot-online  { -fx-fill: #27ae60; }
+.status-dot-warning { -fx-fill: #f39c12; }
+.status-dot-offline { -fx-fill: #e74c3c; }
+
+.refresh-button {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 6 16 6 16;
+    -fx-cursor: hand;
+}
+.refresh-button:hover {
+    -fx-background-color: #21618c;
+}
+
+.status-bar {
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #dcdcdc transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+.status-bar-label {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 12px;
+}
+
+.about-pane {
+    -fx-background-color: white;
+}
+.about-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+.about-version {
+    -fx-text-fill: #7f8c8d;
+}
+.close-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 6 16 6 16;
+    -fx-cursor: hand;
+}
+.close-button:hover {
+    -fx-background-color: #c0392b;
+}

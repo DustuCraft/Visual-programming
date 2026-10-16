@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="HelloController"
+      alignment="CENTER" spacing="20.0" prefHeight="300.0" prefWidth="380.0">
+    <padding>
+        <Insets top="25.0" bottom="25.0" left="25.0" right="25.0"/>
+    </padding>
+    <children>
+        <GridPane hgap="10.0" vgap="10.0" alignment="CENTER">
+            <children>
+                <Label text="Число A:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtA" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Число B:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtB" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            </children>
+        </GridPane>
+        <GridPane hgap="10.0" vgap="10.0" alignment="CENTER">
+            <children>
+                <Button text="+" onAction="#onAddClick" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Button text="-" onAction="#onSubtractClick" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Button text="*" onAction="#onMultiplyClick" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <Button text="/" onAction="#onDivideClick" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+            </children>
+        </GridPane>
+        <Label fx:id="lblResult" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    </children>
+</VBox>

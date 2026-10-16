@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="HelloController"
+      alignment="CENTER" spacing="18.0" prefHeight="350.0" prefWidth="450.0">
+    <padding>
+        <Insets top="25.0" bottom="25.0" left="25.0" right="25.0"/>
+    </padding>
+    <children>
+        <Label fx:id="lblTarget" style="-fx-font-size: 18px;" text="Исходный текст"/>
+        <Button fx:id="btnChangeText" text="Изменить текст" onAction="#onChangeTextClick"/>
+        <Button fx:id="btnToggleVisible" text="Показать/скрыть" onAction="#onToggleVisibleClick"/>
+        <Button fx:id="btnToggleEnabled" text="Доступность кнопки" onAction="#onToggleEnabledClick"/>
+        <ColorPicker fx:id="colorPicker" onAction="#onColorChanged"/>
+    </children>
+</VBox>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.effect.DropShadow?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.lab_2.HelloController"
+            prefWidth="1100"
+            prefHeight="720"
+            style="-fx-background-color: #111218;">
+
+    <!-- ==================== ВЕРХНЕЕ МЕНЮ ==================== -->
+
+    <top>
+        <HBox spacing="12"
+              alignment="CENTER_LEFT"
+              style="-fx-background-color: #0b0c11; -fx-padding: 18 30;">
+
+            <Label text="🎬 МОИ ФИЛЬМЫ"
+                   style="-fx-text-fill: white;
+                          -fx-font-size: 20px;
+                          -fx-font-weight: bold;"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button fx:id="menuListButton"
+                    text="Список фильмов"
+                    onAction="#showListView"
+                    style="-fx-background-color: #242637;
+                           -fx-text-fill: white;
+                           -fx-background-radius: 20;
+                           -fx-padding: 9 20;
+                           -fx-cursor: hand;
+                           -fx-font-weight: bold;"/>
+
+            <Button fx:id="menuAddButton"
+                    text="+ Добавить фильм"
+                    onAction="#showAddView"
+                    style="-fx-background-color: #e50914;
+                           -fx-text-fill: white;
+                           -fx-background-radius: 20;
+                           -fx-padding: 9 20;
+                           -fx-cursor: hand;
+                           -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+
+        <StackPane style="-fx-padding: 25 35 30 35;">
+
+            <!-- ==================== СПИСОК ==================== -->
+
+            <VBox fx:id="listViewRoot"
+                  spacing="15">
+
+                <Label text="Список фильмов"
+                       style="-fx-text-fill: white;
+                              -fx-font-size: 26px;
+                              -fx-font-weight: bold;"/>
+
+                <Label fx:id="emptyListLabel"
+                       text="Пока нет ни одного фильма. Нажмите «Добавить фильм»."
+                       style="-fx-text-fill: #6b6d85;
+                              -fx-font-size: 14px;"/>
+
+                <ListView fx:id="movieListView"
+                          VBox.vgrow="ALWAYS"
+                          style="-fx-background-color: transparent;
+                                 -fx-control-inner-background: transparent;
+                                 -fx-padding: 0;"/>
+            </VBox>
+
+
+            <!-- ==================== ДОБАВЛЕНИЕ ==================== -->
+
+            <HBox fx:id="addViewRoot"
+                  spacing="0"
+                  style="-fx-background-color: #1a1b25;
+                         -fx-background-radius: 18;
+                         -fx-border-color: #292b3a;
+                         -fx-border-radius: 18;
+                         -fx-border-width: 1;">
+
+                <!-- ==================== ПОСТЕР ==================== -->
+
+                <VBox alignment="TOP_CENTER"
+                      spacing="12"
+                      style="-fx-padding: 28;">
+
+                    <ImageView fx:id="posterImageView"
+                               fitWidth="230"
+                               fitHeight="335"
+                               preserveRatio="true"
+                               smooth="true"
+                               style="-fx-background-color: #0b0c11;
+                                      -fx-background-radius: 12;">
+
+                        <effect>
+                            <DropShadow radius="18"
+                                        color="#000000aa"/>
+                        </effect>
+
+                    </ImageView>
+
+                    <Label fx:id="imageStatusLabel"
+                           text="Постер не загружен"
+                           style="-fx-text-fill: #6b6d85;
+                                  -fx-font-size: 11px;"/>
+
+                    <TextField fx:id="imageUrlField"
+                               prefWidth="230"
+                               promptText="Ссылка на постер (URL)"
+                               style="-fx-background-color: #0d0e14;
+                                      -fx-text-fill: white;
+                                      -fx-prompt-text-fill: #5c5e73;
+                                      -fx-background-radius: 8;
+                                      -fx-padding: 9;"/>
+
+                    <HBox spacing="8">
+
+                        <Button fx:id="loadImageButton"
+                                text="Загрузить"
+                                onAction="#onLoadImageClicked"
+                                style="-fx-background-color: #e50914;
+                                       -fx-text-fill: white;
+                                       -fx-font-weight: bold;
+                                       -fx-background-radius: 6;
+                                       -fx-cursor: hand;"/>
+
+                        <Button fx:id="clearImageButton"
+                                text="Сброс"
+                                onAction="#onClearImageClicked"
+                                style="-fx-background-color: transparent;
+                                       -fx-text-fill: #9a9cb5;
+                                       -fx-border-color: #34364a;
+                                       -fx-border-radius: 6;
+                                       -fx-background-radius: 6;
+                                       -fx-cursor: hand;"/>
+
+                    </HBox>
+
+                </VBox>
+
+
+                <!-- ==================== ДАННЫЕ ФИЛЬМА ==================== -->
+
+                <VBox spacing="16"
+                      HBox.hgrow="ALWAYS"
+                      style="-fx-padding: 30 35 30 10;">
+
+                    <Label text="НОВАЯ КАРТОЧКА ФИЛЬМА"
+                           style="-fx-text-fill: #e50914;
+                                  -fx-font-size: 12px;
+                                  -fx-font-weight: bold;"/>
+
+
+                    <TextField fx:id="titleField"
+                               promptText="Название фильма"
+                               style="-fx-background-color: transparent;
+                                      -fx-text-fill: white;
+                                      -fx-font-size: 30px;
+                                      -fx-font-weight: bold;
+                                      -fx-prompt-text-fill: #4a4c60;
+                                      -fx-border-color: transparent transparent #2a2c3b transparent;
+                                      -fx-border-width: 0 0 2 0;
+                                      -fx-padding: 0 0 8 0;"/>
+
+
+                    <!-- ГОД + ЖАНР -->
+
+                    <HBox spacing="10">
+
+                        <TextField fx:id="yearField"
+                                   promptText="Год"
+                                   prefWidth="100"
+                                   style="-fx-background-color: #101117;
+                                          -fx-text-fill: #c7c9de;
+                                          -fx-prompt-text-fill: #5c5e73;
+                                          -fx-border-color: #2a2c3b;
+                                          -fx-border-radius: 20;
+                                          -fx-background-radius: 20;
+                                          -fx-padding: 8 16;"/>
+
+                        <TextField fx:id="genreField"
+                                   promptText="Жанр"
+                                   prefWidth="220"
+                                   style="-fx-background-color: #101117;
+                                          -fx-text-fill: #c7c9de;
+                                          -fx-prompt-text-fill: #5c5e73;
+                                          -fx-border-color: #2a2c3b;
+                                          -fx-border-radius: 20;
+                                          -fx-background-radius: 20;
+                                          -fx-padding: 8 16;"/>
+
+                    </HBox>
+
+
+                    <!-- РЕЖИССЁР -->
+
+                    <TextField fx:id="directorField"
+                               promptText="Режиссёр"
+                               style="-fx-background-color: #101117;
+                                      -fx-text-fill: white;
+                                      -fx-prompt-text-fill: #5c5e73;
+                                      -fx-border-color: #2a2c3b;
+                                      -fx-border-radius: 8;
+                                      -fx-background-radius: 8;
+                                      -fx-padding: 10;"/>
+
+
+                    <!-- В РОЛЯХ -->
+
+                    <TextField fx:id="rolesField"
+                               promptText="В ролях — например: Леонардо ДиКаприо, Том Харди"
+                               style="-fx-background-color: #101117;
+                                      -fx-text-fill: white;
+                                      -fx-prompt-text-fill: #5c5e73;
+                                      -fx-border-color: #2a2c3b;
+                                      -fx-border-radius: 8;
+                                      -fx-background-radius: 8;
+                                      -fx-padding: 10;"/>
+
+
+                    <!-- БЮДЖЕТ -->
+
+                    <TextField fx:id="budgetField"
+                               promptText="Бюджет — например: $100 млн"
+                               style="-fx-background-color: #101117;
+                                      -fx-text-fill: white;
+                                      -fx-prompt-text-fill: #5c5e73;
+                                      -fx-border-color: #2a2c3b;
+                                      -fx-border-radius: 8;
+                                      -fx-background-radius: 8;
+                                      -fx-padding: 10;"/>
+
+
+                    <!-- РЕЙТИНГ -->
+
+                    <VBox spacing="5">
+
+                        <Label text="Ваша оценка"
+                               style="-fx-text-fill: #6b6d85;
+                                      -fx-font-size: 12px;"/>
+
+                        <HBox fx:id="starsBox"
+                              spacing="4"
+                              alignment="CENTER_LEFT"/>
+
+                        <Label fx:id="ratingValueLabel"
+                               text="Оценка не выбрана"
+                               style="-fx-text-fill: #f5c518;
+                                      -fx-font-size: 13px;
+                                      -fx-font-weight: bold;"/>
+
+                    </VBox>
+
+
+                    <Region VBox.vgrow="ALWAYS"/>
+
+
+                    <!-- КНОПКИ -->
+
+                    <HBox spacing="10">
+
+                        <Button fx:id="saveButton"
+                                text="Сохранить карточку"
+                                onAction="#onSaveClicked"
+                                style="-fx-background-color: #e50914;
+                                       -fx-text-fill: white;
+                                       -fx-font-weight: bold;
+                                       -fx-background-radius: 6;
+                                       -fx-padding: 11 24;
+                                       -fx-cursor: hand;"/>
+
+                        <Button fx:id="resetButton"
+                                text="Очистить"
+                                onAction="#onResetClicked"
+                                style="-fx-background-color: transparent;
+                                       -fx-text-fill: #9a9cb5;
+                                       -fx-border-color: #34364a;
+                                       -fx-border-radius: 6;
+                                       -fx-background-radius: 6;
+                                       -fx-padding: 11 24;
+                                       -fx-cursor: hand;"/>
+
+                    </HBox>
+
+
+                    <Label fx:id="infoLabel"
+                           wrapText="true"
+                           style="-fx-font-size: 12px;"/>
+
+                </VBox>
+
+            </HBox>
+
+        </StackPane>
+
+    </center>
+
+</BorderPane>

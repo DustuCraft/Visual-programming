@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="HelloController"
+      alignment="CENTER" spacing="20.0" prefHeight="320.0" prefWidth="420.0">
+    <padding>
+        <Insets top="25.0" bottom="25.0" left="25.0" right="25.0"/>
+    </padding>
+    <children>
+        <Button fx:id="btnAction" text="Нажми меня" onAction="#onActionButtonClick"/>
+        <TextField fx:id="txtInput" promptText="Введите текст..."/>
+        <Label fx:id="lblEvent" wrapText="true" style="-fx-font-size: 14px;" text="Ожидание события..."/>
+    </children>
+</VBox>

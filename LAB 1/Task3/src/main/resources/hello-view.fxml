@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="HelloController"
+      alignment="CENTER" spacing="20.0" prefHeight="250.0" prefWidth="400.0">
+    <padding>
+        <Insets top="25.0" bottom="25.0" left="25.0" right="25.0"/>
+    </padding>
+    <children>
+        <GridPane hgap="10.0" vgap="10.0" alignment="CENTER">
+            <children>
+                <Label text="Имя:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtName" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Фамилия:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtSurname" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            </children>
+        </GridPane>
+        <Button text="Поприветствовать" onAction="#onHelloClick"/>
+        <Label fx:id="lblResult" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    </children>
+</VBox>
