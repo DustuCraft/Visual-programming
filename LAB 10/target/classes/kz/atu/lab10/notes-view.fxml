@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="kz.atu.lab10.NotesController">
+  <top>
+    <ToolBar>
+      <Label text="КАТАЛОГ РЕЦЕПТОВ" style="-fx-font-weight: bold;"/>
+      <Separator orientation="VERTICAL"/>
+      <Button text="Открыть" onAction="#onOpen"/>
+      <Button text="Сохранить" onAction="#onSave"/>
+    </ToolBar>
+  </top>
+  <left>
+    <VBox spacing="8" style="-fx-padding: 10;" prefWidth="270">
+      <TextField fx:id="txtSearch" promptText="Поиск по названию"/>
+      <ComboBox fx:id="cbFilter" maxWidth="Infinity"/>
+      <ListView fx:id="listNotes" VBox.vgrow="ALWAYS"/>
+    </VBox>
+  </left>
+  <center>
+    <VBox spacing="10" style="-fx-padding: 14;">
+      <TextField fx:id="txtTitle" promptText="Название рецепта"/>
+      <ComboBox fx:id="cbPriority" maxWidth="Infinity" promptText="Приоритет"/>
+      <TextArea fx:id="txtBody" promptText="Ингредиенты и приготовление" wrapText="true" VBox.vgrow="ALWAYS"/>
+      <HBox spacing="10">
+        <Button text="Добавить" onAction="#onAdd"/>
+        <Button text="Изменить" onAction="#onEdit"/>
+        <Button text="Удалить" onAction="#onDelete"/>
+      </HBox>
+    </VBox>
+  </center>
+  <bottom>
+    <Label fx:id="lblStatus" text="Готово" style="-fx-padding: 6 14 6 14;"/>
+  </bottom>
+</BorderPane>
