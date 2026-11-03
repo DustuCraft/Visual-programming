@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="kz.atu.lab08.MainController">
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="Файл">
+                    <MenuItem text="Открыть…" onAction="#onOpen">
+                        <accelerator><KeyCodeCombination code="O" control="DOWN" alt="UP" shift="UP" meta="UP" shortcut="UP"/></accelerator>
+                    </MenuItem>
+                    <MenuItem text="Сохранить" onAction="#onSave">
+                        <accelerator><KeyCodeCombination code="S" control="DOWN" alt="UP" shift="UP" meta="UP" shortcut="UP"/></accelerator>
+                    </MenuItem>
+                    <MenuItem text="Сохранить как…" onAction="#onSaveAs">
+                        <accelerator><KeyCodeCombination code="S" control="DOWN" alt="UP" shift="DOWN" meta="UP" shortcut="UP"/></accelerator>
+                    </MenuItem>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Выход" onAction="#onExit">
+                        <accelerator><KeyCodeCombination code="Q" control="DOWN" alt="UP" shift="UP" meta="UP" shortcut="UP"/></accelerator>
+                    </MenuItem>
+                </Menu>
+                <Menu text="Настройки">
+                    <MenuItem text="Цвет текста…" onAction="#onChooseColor"/>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <Button text="Добавить" onAction="#onAdd"/>
+                <Button text="Изменить" onAction="#onEdit"/>
+                <Button text="Удалить" onAction="#onDelete"/>
+                <Button text="График" onAction="#onShowChart"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="О программе" onAction="#onAbout"/>
+            </ToolBar>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn fx:id="colDate" text="Дата" prefWidth="110"/>
+                <TableColumn fx:id="colCategory" text="Категория" prefWidth="150"/>
+                <TableColumn fx:id="colAmount" text="Сумма, ₸" prefWidth="120"/>
+                <TableColumn fx:id="colNote" text="Примечание" prefWidth="380"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <padding><Insets top="6" right="10" bottom="6" left="10"/></padding>
+            <Label fx:id="lblStatus" text="Готово" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Label fx:id="lblTotal" text="Итого: 0.00 ₸"/>
+        </HBox>
+    </bottom>
+</BorderPane>

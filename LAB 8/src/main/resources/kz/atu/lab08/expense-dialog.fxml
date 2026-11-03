@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="kz.atu.lab08.ExpenseDialogController" spacing="12" prefWidth="380">
+    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="90"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+        <Label text="Дата" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="datePicker" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="Категория" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbCategory" editable="true" promptText="Выберите или введите новую"
+                  maxWidth="Infinity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Label text="Сумма, ₸" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtAmount" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <Label text="Примечание" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNote" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+    <Label fx:id="lblError" style="-fx-text-fill: #C62828;"/>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Сохранить" defaultButton="true" onAction="#onSave"/>
+        <Button text="Отмена" cancelButton="true" onAction="#onCancel"/>
+    </HBox>
+</VBox>

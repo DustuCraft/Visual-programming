@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+
+<TabPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="kz.atu.lab08.ChartController"
+         tabClosingPolicy="UNAVAILABLE" prefWidth="680" prefHeight="480">
+    <Tab text="По категориям">
+        <content>
+            <PieChart fx:id="pieChart" title="Расходы по категориям" animated="false"/>
+        </content>
+    </Tab>
+    <Tab text="По датам">
+        <content>
+            <BarChart fx:id="barChart" title="Расходы по датам" legendVisible="false" animated="false">
+                <xAxis><CategoryAxis label="Дата"/></xAxis>
+                <yAxis><NumberAxis label="Сумма, ₸"/></yAxis>
+            </BarChart>
+        </content>
+    </Tab>
+</TabPane>
