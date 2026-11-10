@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="kz.atu.lab11.controller.VacancyController">
+
+    <padding>
+        <Insets top="12" right="12" bottom="12" left="12"/>
+    </padding>
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <padding>
+                <Insets bottom="10"/>
+            </padding>
+            <Label text="Поиск по должности:"/>
+            <TextField fx:id="txtSearch" promptText="Введите часть названия" HBox.hgrow="ALWAYS"/>
+            <Label text="Сфера:"/>
+            <ComboBox fx:id="cmbCategoryFilter" prefWidth="160"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableVacancies">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="colTitle" text="Должность" prefWidth="260"/>
+                <TableColumn fx:id="colCompany" text="Компания" prefWidth="200"/>
+                <TableColumn fx:id="colCategory" text="Сфера" prefWidth="150"/>
+                <TableColumn fx:id="colSalary" text="Зарплата, ₸" prefWidth="140"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10"/>
+            </padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="txtTitle" promptText="Должность" HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="txtCompany" promptText="Компания" HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="txtCategory" promptText="Сфера" HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="txtSalary" promptText="Зарплата" prefWidth="120"/>
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Добавить" onAction="#onAdd"/>
+                <Button text="Изменить" onAction="#onUpdate"/>
+                <Button text="Удалить" onAction="#onDelete"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblAverage" text="Средняя зарплата: 0"/>
+                <Label fx:id="lblCount" text="Найдено вакансий: 0"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
